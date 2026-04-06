@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, make_response
 from app.services.prediction_service import get_prediction
 import logging
 import os
@@ -6,7 +6,7 @@ import os
 
 routes = Blueprint('routes', __name__)
 API_KEY = os.getenv("API_KEY")
-routes = Blueprint("routes", __name__)
+
 
 @routes.route("/")
 def home():
