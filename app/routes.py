@@ -5,7 +5,7 @@ import os
 
 
 routes = Blueprint('routes', __name__)
-API_KEY = os.getenv("API_KEY")
+
 
 
 @routes.route("/")
@@ -17,6 +17,9 @@ def home():
 def predict():
 
     logging.info("Predict route hit")
+
+    ENV_KEY = os.getenv("API_KEY")
+    API_KEY = ENV_KEY.strip() if ENV_KEY else None
 
     user_key = request.headers.get("x-api-key")
 
